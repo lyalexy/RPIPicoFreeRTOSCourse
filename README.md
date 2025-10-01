@@ -1,3 +1,4 @@
+README.txt Alexy Ly
 # RPIPicoFreeRTOSCourse
 Course Repository for Udemy Course: [FreeRTOS on Raspberry PI PICO](https://www.udemy.com/course/draft/4868484/?referralCode=C5A9A19C93919A9DA294)
 

@@ -35,6 +35,7 @@ void runTimeStats(   ){
 
    // Get number of takss
    uxArraySize = uxTaskGetNumberOfTasks();
+   printf("Alexy Ly F14158806 \n");
    printf("Number of tasks %d\n", uxArraySize);
 
    //Allocate a TaskStatus_t structure for each task.
@@ -94,7 +95,7 @@ void mainTask(void *params){
 
 	while (true) { // Loop forever
 		runTimeStats();
-		vTaskDelay(3000);
+		vTaskDelay(2000);
 	}
 }
 

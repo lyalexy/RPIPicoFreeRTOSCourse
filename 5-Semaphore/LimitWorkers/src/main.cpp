@@ -88,11 +88,13 @@ void mainTask(void *params){
 	BlinkWorker worker1(LED1_PAD);
 	BlinkWorker worker2(LED2_PAD);
 	BlinkWorker worker3(LED3_PAD);
+	BlinkWorker worker4(LED4_PAD);
 
-	SemaphoreHandle_t sem = xSemaphoreCreateCounting(3, 2);
+	SemaphoreHandle_t sem = xSemaphoreCreateCounting(2, 2);
 	worker1.setSemaphore(sem);
 	worker2.setSemaphore(sem);
 	worker3.setSemaphore(sem);
+	worker4.setSemaphore(sem);
 
 	printf("Main task started\n");
 
@@ -100,6 +102,7 @@ void mainTask(void *params){
 	worker1.start("Worker 1", TASK_PRIORITY);
 	worker2.start("Worker 2", TASK_PRIORITY);
 	worker3.start("Worker 3", TASK_PRIORITY);
+	worker4.start("Worker 4", TASK_PRIORITY);
 
 	while (true) { // Loop forever
 		runTimeStats();

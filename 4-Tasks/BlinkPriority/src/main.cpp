@@ -21,10 +21,14 @@
 #define TASK_PRIORITY		( tskIDLE_PRIORITY + 1UL )
 
 //LED PAD to use
-#define LED_PAD				0
-#define LED1_PAD			2
-#define LED2_PAD			3
-
+#define LED_PAD					0
+#define LED1_PAD				2
+#define LED2_PAD				3
+#define LED3_PAD				4
+#define LED4_PAD				5
+#define LED5_PAD				1
+#define LED6_PAD				6
+#define LED7_PAD				7
 
 
 void runTimeStats(   ){
@@ -82,15 +86,25 @@ void runTimeStats(   ){
  * @param params - unused
  */
 void mainTask(void *params){
-	BlinkAgent blink(LED_PAD);
-	BlinkWorker worker1(LED1_PAD);
-	BlinkHeavy worker2(LED2_PAD);
+	BlinkWorker blink(LED_PAD);
+	BlinkHeavy worker1(LED1_PAD);
+	BlinkAgent worker2(LED2_PAD);
+	BlinkAgent worker3(LED3_PAD);
+	BlinkAgent worker4(LED4_PAD);
+	BlinkAgent worker5(LED5_PAD);
+	BlinkAgent worker6(LED6_PAD);
+	BlinkAgent worker7(LED7_PAD);
 
 	printf("Main task started\n");
 
 	blink.start("Blink", TASK_PRIORITY);
 	worker1.start("Worker 1", TASK_PRIORITY+ 1);
 	worker2.start("Worker 2", TASK_PRIORITY + 2);
+	worker3.start("Worker 3", TASK_PRIORITY + 3);
+	worker4.start("Worker 4", TASK_PRIORITY + 4);
+	worker5.start("Worker 5", TASK_PRIORITY + 5);
+	worker6.start("Worker 6", TASK_PRIORITY + 6);
+	worker7.start("Worker 7", TASK_PRIORITY + 7);
 
 	while (true) { // Loop forever
 		runTimeStats();

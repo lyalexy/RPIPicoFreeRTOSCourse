@@ -21,7 +21,7 @@
 #define TASK_PRIORITY		( tskIDLE_PRIORITY + 1UL )
 
 //LED PAD to use
-#define LED_PAD				0
+#define LED_PAD				25
 #define LED1_PAD			2
 #define LED2_PAD			3
 #define LED3_PAD			4
@@ -96,6 +96,7 @@ void mainTask(void *params){
 		uint8_t r = rand() & 0x0F;
 		counter.blink(r);
 		printf("Blinking R=0x%X\n", r);
+		printf("Alexy LY F14158806\n");
 		vTaskDelay(3000);
 	}
 }
